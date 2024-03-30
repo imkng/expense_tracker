@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ExpenseService {
     List<Expense> getAllListOfExpenses();
+
+    Expense saveExpenseDetails(Expense expense);
 }
