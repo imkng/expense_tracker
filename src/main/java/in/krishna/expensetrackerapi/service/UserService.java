@@ -5,4 +5,6 @@ import in.krishna.expensetrackerapi.entity.UserModel;
 
 public interface UserService {
     User createUser(UserModel userModel);
+
+    User getLoggedInUser();
 }
