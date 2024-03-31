@@ -26,4 +26,22 @@ public class ExpenseController {
     public Expense saveExpenseDetails(@Valid @RequestBody Expense expense) {
         return expenseService.saveExpenseDetails(expense);
     }
+
+    @GetMapping("/expenses/{id}")
+    public Expense getExpenseById(@PathVariable Long id){
+        return expenseService.getExpenseById(id);
+    }
+
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @DeleteMapping("/expenses")
+    public void deleteExpenseById(@RequestParam Long id) {
+        expenseService.deleteExpenseById(id);
+    }
+
+    @PutMapping("/expenses/{id}")
+    public Expense updateExpenseDetails(@RequestBody Expense expense, @PathVariable Long id){
+        return expenseService.updateExpenseDetails(id, expense);
+    }
+
+
 }

@@ -10,4 +10,10 @@ public interface ExpenseService {
     Page<Expense> getAllListOfExpenses(Pageable pageable);
 
     Expense saveExpenseDetails(Expense expense);
+
+    Expense getExpenseById(Long id);
+
+    void deleteExpenseById(Long id);
+
+    Expense updateExpenseDetails(Long id, Expense expense);
 }
