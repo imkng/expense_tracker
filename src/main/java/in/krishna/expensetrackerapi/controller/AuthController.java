@@ -7,6 +7,10 @@ import in.krishna.expensetrackerapi.entity.UserModel;
 import in.krishna.expensetrackerapi.security.CustomUserDetailsService;
 import in.krishna.expensetrackerapi.service.UserService;
 import in.krishna.expensetrackerapi.utils.JwtTokenUtil;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +19,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,6 +42,16 @@ public class AuthController {
     private JwtTokenUtil jwtTokenUtil;
 
     @PostMapping("/login")
+    @Operation(summary = "You will get JWT token as a Response for Auth")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "Bearer Token will be added in Authorize. Format: Bearer {Your_Token}",
+                    content = {@Content(mediaType = "application/json")}),
+
+            @ApiResponse(responseCode = "404",
+                    description = "Not Available",
+                    content = @Content)
+    })
     public ResponseEntity<JwtResponse> login(@RequestBody AuthModel authModel) throws Exception {
         // Authenticate the user
         authenticate(authModel.getEmail(),authModel.getPassword());

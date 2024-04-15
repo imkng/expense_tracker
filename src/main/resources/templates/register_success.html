@@ -2,8 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Registration Success</title>
+    <title>Thank You</title>
     <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+    * {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    }
+    body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+    }
         span {
             display: inline-block;
             width: 200px;
@@ -13,10 +30,8 @@
 </head>
 <body>
 <div align="center">
-    <h2>Registration Succeeded!</h2>
-    <span>Full name:</span><span th:text="${user.name}"></span><br/>
-    <span>E-mail:</span><span th:text="${user.email}"></span><br/>
-    <span>Note:</span><span th:text="${user.note}"></span><br/>
+    <h2>Thank you for contacting us, we'll get back to you shortly</h2>
+
 </div>
 </body>
 </html>

@@ -1,13 +1,16 @@
 package in.krishna.expensetrackerapi.service;
 
 import in.krishna.expensetrackerapi.entity.Expense;
+import in.krishna.expensetrackerapi.entity.ExpenseModel;
 import in.krishna.expensetrackerapi.entity.User;
 import in.krishna.expensetrackerapi.repository.ExpenseRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.Optional;
 
 @Service
@@ -26,7 +29,12 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
-    public Expense saveExpenseDetails(Expense expense) {
+    public Expense saveExpenseDetails(ExpenseModel expenseModel) {
+        Expense expense = new Expense();
+        expense.setName(expenseModel.getName());
+        expense.setAmount(expenseModel.getAmount());
+        expense.setDescription(expenseModel.getDescription());
+        expense.setCategory(expenseModel.getCategory());
         User user = userService.getLoggedInUser();
         expense.setUser(user);
         return expenseRepository.save(expense);
@@ -48,13 +56,14 @@ public class ExpenseServiceImpl implements ExpenseService {
         expenseRepository.delete(expense);
     }
 
-    public Expense updateExpenseDetails(Long id, Expense expense){
+    public Expense updateExpenseDetails(Long id, ExpenseModel expenseModel){
         Expense existingExpense = getExpenseById(id);
-        existingExpense.setName(expense.getName() != null ? expense.getName() : existingExpense.getName());
-        existingExpense.setDescription(expense.getDescription() != null ? expense.getDescription() : existingExpense.getDescription());
-        existingExpense.setCategory(expense.getCategory() != null ? expense.getCategory() : existingExpense.getCategory());
-        existingExpense.setDate(expense.getDate() != null ? expense.getDate() : existingExpense.getDate());
-        existingExpense.setAmount(expense.getAmount() != null ? expense.getAmount() : existingExpense.getAmount());
+        existingExpense.setName(expenseModel.getName() != null ? expenseModel.getName() : existingExpense.getName());
+        existingExpense.setDescription(expenseModel.getDescription() != null ? expenseModel.getDescription() : existingExpense.getDescription());
+        existingExpense.setCategory(expenseModel.getCategory() != null ? expenseModel.getCategory() : existingExpense.getCategory());
+//        existingExpense.setDate(expense.getDate() != null ? expense.getDate() : existingExpense.getDate());
+        existingExpense.setAmount(expenseModel.getAmount() != null ? expenseModel.getAmount() : existingExpense.getAmount());
+        existingExpense.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
 
         return expenseRepository.save(existingExpense);
     }
