@@ -7,4 +7,11 @@ public interface UserService {
     User createUser(UserModel userModel);
 
     User getLoggedInUser();
+
+    User findByEmail(String email);
+    User readUser(Long id);
+
+    User updateUser(UserModel userModel, Long id);
+
+    User updateUser(User user);
 }

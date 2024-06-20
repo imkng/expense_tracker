@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Entity
@@ -26,7 +27,9 @@ public class User {
     private String email;
     @JsonIgnore
     private String password;
-    private Long age;
+//    private Long age;
+
+    private BigDecimal budget;
 
     @Column(name = "created_at", nullable = false, updatable = true)
     @CreationTimestamp

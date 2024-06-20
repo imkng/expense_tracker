@@ -4,127 +4,127 @@
     <meta charset="ISO-8859-1">
     <title>Spring Expense</title>
     <style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-    * {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    }
-    body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 10px;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
-    }
-    .container {
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  h2 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-  ul, ol, dl {
-    padding: 0;
-    list-style: none;
-  }
-  li, dt, dd {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  dt {
-    font-weight: bold;
-  }
+        @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+        * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        }
+        body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 10px;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+        }
+        .container {
+        width: 80%;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      ul, ol, dl {
+        padding: 0;
+        list-style: none;
+      }
+      li, dt, dd {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      dt {
+        font-weight: bold;
+      }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>User Manual</h1>
+    <h1>User Manual</h1>
 
-        <!-- Unordered List -->
-        <h2>Requirements</h2>
-        <ul>
-            <li>Postman  Or You Can Use Swagger Documentation</li>
-            <li>For POST URL's:- Body -> raw -> Json</li>
-            <li>For Get/PUT/DELETE URL's:- Authorization -> Bearer Token -> Add token from Login</li>
-        </ul>
+    <!-- Unordered List -->
+    <h2>Requirements</h2>
+    <ul>
+        <li>Postman  Or You Can Use Swagger Documentation</li>
+        <li>For POST URL's:- Body -> raw -> Json</li>
+        <li>For Get/PUT/DELETE URL's:- Authorization -> Bearer Token -> Add token from Login</li>
+    </ul>
 
-        <!-- Ordered List -->
-        <h2>Brief Intro about the services</h2>
-        <ol>
-            <li>1. Registration</li>
-            <li>2. Login (You will get bearer token for auth.)</li>
-            <li>3. CRUD Operations on Expenses</li>
-        </ol>
-        <br>
-        <dl>
-            <dt><a href="http://3.111.121.31:5000/api/v1/swagger-ui/index.html#/expense-controller/getAllExpensesUsingGET">Swagger Documentation</a>></dt>
-        </dl>
+    <!-- Ordered List -->
+    <h2>Brief Intro about the services</h2>
+    <ol>
+        <li>1. Registration</li>
+        <li>2. Login (You will get bearer token for auth.)</li>
+        <li>3. CRUD Operations on Expenses</li>
+    </ol>
+    <br>
+    <dl>
+        <dt>Access Swagger Documentation: <a href="http://3.111.121.31:5000/api/v1/swagger-ui/index.html#/expense-controller/getAllExpensesUsingGET"> Here</a>></dt>
+    </dl>
 
-        <br><h2>REST API's</h2>
-        <ol>
-            <li>Registration: http://3.111.121.31:5000/api/v1/register (POST)</li>
-            <li>Login: http://3.111.121.31:5000/api/v1/login (POST)</li>
-            <li>Create Expense:- http://3.111.121.31:5000/api/v1/expenses (POST)</li>
-            <li>Read Expense:- http://3.111.121.31:5000/api/v1/expenses (GET)</li>
-            <li>Update Expense:- http://3.111.121.31:5000/api/v1/expenses/{expense_id} (PUT)</li>
-            <li>Delete Expense:- http://3.111.121.31:5000/api/v1/expenses/{expense_id} (DELETE)</li>
-        </ol>
-        <br>
-        <br>
-        <!-- Description List -->
-        <dl>
-            <dt>User Registration Json</dt>
-            <dd>
+    <br><h2>REST API's</h2>
+    <ol>
+        <li>Registration: http://3.111.121.31:5000/api/v1/register (POST)</li>
+        <li>Login: http://3.111.121.31:5000/api/v1/login (POST)</li>
+        <li>Create Expense:- http://3.111.121.31:5000/api/v1/expenses (POST)</li>
+        <li>Read Expense:- http://3.111.121.31:5000/api/v1/expenses (GET)</li>
+        <li>Update Expense:- http://3.111.121.31:5000/api/v1/expenses/{expense_id} (PUT)</li>
+        <li>Delete Expense:- http://3.111.121.31:5000/api/v1/expenses/{expense_id} (DELETE)</li>
+    </ol>
+    <br>
+    <br>
+    <!-- Description List -->
+    <dl>
+        <dt>User Registration Json</dt>
+        <dd>
+            {
+            "name": "user_name",
+            "email": "userEmailAddress@gmail.com",
+            "password": "***8digit***"
+            }
+        </dd>
+        <dt>Login Json</dt>
+        <dd>{
+            "email": "userEmailAddress@gmail.com",
+            "password": "***8digit***"
+            }
+        </dd>
+        <dt>Expense Json (Don't Forgot to add bearer token from login)</dt>
+        <dd>
+            <code>
                 {
-                "name": "user_name",
-                "email": "userEmailAddress@gmail.com",
-                "password": "***8digit***"
+                "name": "Expense_Name",
+                "description": "Description for expense,",
+                "amount": Your Amount In Double(ex: 1300.00),
+                "category": "Your Category",
+                "date" : "yyyy-mm-dd"
                 }
-            </dd>
-            <dt>Login Json</dt>
-            <dd>{
-                "email": "userEmailAddress@gmail.com",
-                "password": "***8digit***"
-                }
-            </dd>
-            <dt>Expense Json (Don't Forgot to add bearer token from login)</dt>
-            <dd>
-                <code>
-                    {
-                        "name": "Expense_Name",
-                        "description": "Description for expense,",
-                        "amount": Your Amount In Double(ex: 1300.00),
-                        "category": "Your Category",
-                        "date" : "yyyy-mm-dd"
-                    }
-                </code>
-            </dd>
+            </code>
+        </dd>
 
-        </dl>
-        <h1><a href="/api/v1/contact">For any query and suggestion</a></h1>
-<!--        <a href="/api/v1/contact">Contact Us</a> -->
-        <dt>Forthcoming Features: Pagination, Advanced Filters, Frontend</dt>
-    </div>
+    </dl>
+    <h1><a href="/api/v1/contact">For any query and suggestion</a></h1>
+    <!--        <a href="/api/v1/contact">Contact Us</a> -->
+    <dt>Forthcoming Features: Pagination, Advanced Filters, Frontend</dt>
+</div>
 
 
 </body>

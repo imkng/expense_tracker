@@ -38,4 +38,29 @@ public class UserServiceImpl implements UserService {
                 new UsernameNotFoundException("User Not found for the email: " + email)
         );
     }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("User Not found for the email: " + email));
+    }
+
+    @Override
+    public User readUser(Long id) {
+        return userRepository.findById(id).orElseThrow(()-> new UsernameNotFoundException("User not found for id: " + id));
+    }
+
+    @Override
+    public User updateUser(UserModel userModel, Long id) {
+        User existingUser = readUser(id);
+        existingUser.setName(userModel.getName()!= null ? userModel.getName() : existingUser.getName());
+        existingUser.setEmail(userModel.getEmail()!= null ? userModel.getEmail() : existingUser.getEmail());
+        existingUser.setPassword(userModel.getPassword()!= null ? userModel.getPassword() : existingUser.getPassword());
+        existingUser.setBudget(existingUser.getBudget().add(userModel.getBudget()));
+        return userRepository.save(existingUser);
+    }
+
+    @Override
+    public User updateUser(User user){
+        return userRepository.save(user);
+    }
 }

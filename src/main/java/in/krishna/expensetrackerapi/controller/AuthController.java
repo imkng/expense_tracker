@@ -56,11 +56,12 @@ public class AuthController {
         // Authenticate the user
         authenticate(authModel.getEmail(),authModel.getPassword());
         final UserDetails userDetails = customUserDetailsService.loadUserByUsername(authModel.getEmail());
+        User user = userService.findByEmail(authModel.getEmail());
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
         //we need to generate the Jwt token
-        return new ResponseEntity<JwtResponse>(new JwtResponse(token),HttpStatus.OK);
+        return new ResponseEntity<JwtResponse>(new JwtResponse(token, user.getId()),HttpStatus.OK);
     }
 
     private void authenticate(String email, String password) throws Exception {

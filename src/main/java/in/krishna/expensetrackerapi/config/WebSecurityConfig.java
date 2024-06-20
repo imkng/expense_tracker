@@ -50,37 +50,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic();
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("Krishna").password("12345").authorities("User")
-//                .and()
-//                .withUser("Ankit").password("12345").authorities("admin")
-//                .and()
-//                .passwordEncoder(NoOpPasswordEncoder.getInstance());
-//    }
-
-    //    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
-//        UserDetails userDetails1 = User.withUsername("Krishna").password("12345").authorities("user").build();
-//        UserDetails userDetails2 = User.withUsername("ankit").password("12345").authorities("admin").build();
-//
-//        //create user
-//        userDetailsManager.createUser(userDetails1);
-//        userDetailsManager.createUser(userDetails2);
-//
-//        // we need to tell spring security that user has been created for that
-//        // we will use AuthenticationManagerBuilder auth
-//        auth.userDetailsService(userDetailsManager);
-//    }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
 
-    // also need to provide password encoders
-    // to encodes password
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

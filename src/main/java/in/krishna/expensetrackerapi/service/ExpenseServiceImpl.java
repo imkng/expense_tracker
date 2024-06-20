@@ -36,6 +36,8 @@ public class ExpenseServiceImpl implements ExpenseService {
         expense.setDescription(expenseModel.getDescription());
         expense.setCategory(expenseModel.getCategory());
         User user = userService.getLoggedInUser();
+        user.setBudget(user.getBudget().subtract(expenseModel.getAmount()));
+        userService.updateUser(user);
         expense.setUser(user);
         return expenseRepository.save(expense);
     }
